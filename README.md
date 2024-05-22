@@ -14,7 +14,9 @@ The equation is used to determine the next position of the cat's in my suika gam
 The contraints are very basic ones: applying gravity, border constraints and collision with other cat's. 
 
 ### Game Mechanic 
-You are basically going to merge cute cats and see how much points you can get. if the cat goes above the screen. Basically, try to spawn to cats at the same time. You lose. 
+You are basically going to merge cute cats and see how much points you can get.
+There will be a few cats that will pop up that can drop but the other cats must be merged to get.
+If the cat goes above the screen. Basically, try to spawn to cats at the same time. You lose.
 
 Point System: 
 For ever merge, you get 2 * the level added into your points. so the smallest cat will give you 2 when you merge them and so on. 
