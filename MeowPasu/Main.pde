@@ -14,36 +14,74 @@ ArrayList<Cat> cats;
 Constraints constraints; 
 Cat next_cat; 
 
+//Ending of Game
+int points; 
+boolean result; 
+//Introduction of the game 
+boolean game_active; 
+PFont f; 
+
 
 void setup(){
   background(0);
-  size(800, 800);
+  size(600, 800);
+  
   frameRate(60); 
   wood = loadImage("Wood.jpeg");
+  
   cats = new ArrayList<Cat>(); 
   next_cat = new Cat(400, 0, 30, "0.png", 0);  
   constraints = new Constraints(cats); 
   
+  points = 0; 
+  result = true; 
+  
+  game_active = false;
+  f = createFont("Arial", 24,true);
+  
 }
 
 void draw(){
-  image(wood, 0, 0, 800,800); 
-  stroke(0);
-  line(-1,50,801,50);
-  //constraints.update(1.0/frameRate);
-  constraints.update(1/frameRate);
-  for(Cat c: cats){
-    c.draw();
+  background(0); 
+  image(wood, 0, 0, 600,800); 
+  if(game_active == true){
+    stroke(0);
+    line(-1,50,801,50);
+    //constraints.update(1.0/frameRate);
+    constraints.update(1/frameRate);
+    for(Cat c: cats){
+      c.draw();
+    }
+    next_cat.draw();
+    next_cat.changeX();
+  }else if(game_active == false && result == true ){
+    textFont(f, 58); 
+    fill(255); 
+    textAlign(CENTER);
+    text("MeowPasu", 300, 150);
+    textFont(f, 38); 
+    text("Suika Game!!", 300, 200);
+    textFont(f, 48);
+    text("Click to Start",300,750);
+  }else if(game_active == false && result == false){
+    textFont(f, 58); 
+    fill(255); 
+    textAlign(CENTER);
+    text("You Lose", 300, 150);
+    text("Points: " + points, 300, 200);
   }
-  next_cat.draw();
-  next_cat.changeX();
 }
 
 void mousePressed(){
-  //drops the next cat 
-  cats.add(next_cat); 
-  Random rand = new Random(); 
-  int num = rand.nextInt(4); 
-  String image = num + ".png"; 
-  next_cat = new Cat(400,0, (30 + (5*num)), image, num);  
+  if (game_active == true){
+    //drops the next cat 
+    cats.add(next_cat); 
+    Random rand = new Random(); 
+    int num = rand.nextInt(4); 
+    String image = num + ".png"; 
+    int radius = (30 + (5*num));
+    next_cat = new Cat(400, 0, radius, image, num); 
+  }else if (game_active == false && result == true){
+    game_active = true; 
+  }
 }

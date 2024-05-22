@@ -18,7 +18,8 @@ class Constraints{
     applyGravity();
     applyConstraints();
     resolveCollision();
-    update_position(dt);
+    update_position(dt); 
+    losingLine();
     
   }
   void update_position(float dt){
@@ -34,7 +35,7 @@ class Constraints{
   //Makes sure the object stays in the window 
   void applyConstraints(){
     PVector topLeft = new PVector(0, -100);  // Top-left corner of the rectangle
-    PVector bottomRight = new PVector(800, 800);  // Bottom-right corner of the rectangle
+    PVector bottomRight = new PVector(600, 800);  // Bottom-right corner of the rectangle
     
     for (Cat c : cats) {
         // Check if the cat's current position is outside the rectangle
@@ -43,10 +44,7 @@ class Constraints{
         }else if (c.current_position.x > bottomRight.x - c.radius) {
             c.current_position.x = bottomRight.x - c.radius;
         }
-        
-        /*if (c.current_position.y < topLeft.y + c.radius) {
-            c.current_position.y = topLeft.y + c.radius;
-        }*/if (c.current_position.y > bottomRight.y - c.radius) {
+        if (c.current_position.y > bottomRight.y - c.radius) {
             c.current_position.y = bottomRight.y - c.radius;
         }
     }
@@ -82,10 +80,11 @@ class Constraints{
             a.touch = true; 
             delete_cats.add(c);
             delete_cats.add(a);
+            points += 2*c.level + 2; 
           }else{
             //make them dont overlap no more (split the spliting into 2) 
-            a.current_position.add(PVector.mult(n, 0.05*delta));
-            c.current_position.sub(PVector.mult(n, 0.05*delta));
+            a.current_position.add(PVector.mult(n, 0.1*delta));
+            c.current_position.sub(PVector.mult(n, 0.1*delta));
           }
         }
       }
@@ -100,5 +99,21 @@ class Constraints{
     add_cats = new ArrayList<Cat>();
   }
   
+  void losingLine(){
+    for(Cat c: cats){
+      //If a cat is beyond the line, then the player loses 
+      if (c.current_position.y - c.radius < 50   && c.time_count == 5 && c.current_position.y - c.previous_position.y <= 0 ) {
+            print("Points: " + points);
+            game_active = false; 
+            result = false; 
+      }
+       else if(c.current_position.y - c.radius < 50  && c.time_count < 5 && c.current_position.y - c.previous_position.y <= 0  ){
+         c.time_count++; 
+       }
+       else{
+         c.time_count = 0; 
+       }
+    }
+  }
   
 }
