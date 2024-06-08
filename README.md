@@ -16,6 +16,8 @@ X(n) - X(n-1) = V(n-1)*delta(t) => Velocity from the object's previous position
 
 The equation is used to determine the position of the next cat in my suika game, with constraints. The contraints are very basic ones: applying gravity, border constraints, and collision with other cats. So, knowing how verlet physics works and certain constraints, the production of suika game can be easily accomplished. 
 
+To get a better understanding of verlet physics: This [video](https://www.youtube.com/watch?v=lS_qeBy3aQI&ab_channel=Pezzza%27sWork) will help and where I got the better understanding of it too. 
+
 ### How to play
 **Goal:** The aim of the game is to merge cute cats and see how many points you can get.
 You can click to spawn cats at the top of the screen which will drop and merge them with other cats of the same kind.
