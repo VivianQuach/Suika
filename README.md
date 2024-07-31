@@ -29,6 +29,7 @@ If the cat goes beyond the screen, you lose.
 
 If you would like to run an application of the game, in processing go to file-> export application, pick which is right for you and add in the assets folder into the folder to play the game. Enjoy!!!
 
-Here is a short demo of the game:
+Here is a short demo of the game: <br>
 
-<video  src="demo.mp4" title="Video"></video>
+https://github.com/user-attachments/assets/b9431c39-48e5-465b-b609-4fb309be32f5
+
