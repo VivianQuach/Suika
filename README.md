@@ -31,4 +31,4 @@ If you would like to run an application of the game, in processing go to file-> 
 
 Here is a short demo of the game:
 
-<video controls src="demo.mp4" title="Video"></video>
+<video  src="demo.mp4" title="Video"></video>
