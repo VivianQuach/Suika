@@ -2,6 +2,8 @@
 
 Suika means Watermelon in Japanese. The original game tasks players with merging two of the same fruit to produce another fruit, with the final fruit being a watermelon. Once, your able to produce two watermelons, it will cycle back to the smallest fruit. My rendition of the game uses cats rather than fruit, because I thought cats were cuter.
 
+I wanted to make the game alittle bit less quiet and added sound effects for everytime the cats merge together. But if you want background music too the game, I suggest this [BGM](https://www.youtube.com/watch?v=487Xz9y_f6w&ab_channel=%E3%81%AB%E3%82%83%E3%82%8B%E3%81%B1%E3%81%8BBGM%E5%B7%A5%E6%88%BF). But make sure you volume is high for the sound and that the background music is lowered. 
+
 ### Verlet Physics and its correlation with suika 
 
 X(n) = Current Position
@@ -29,3 +31,4 @@ Here is a short demo of the game:
 
 <video controls src="demo.mp4" title="Title"></video>
 
+If you would like to run an application of the game, in processing go to file-> export application, pick which is right for you and add in the assets folder into the folder to play the game. Enjoy!!!
