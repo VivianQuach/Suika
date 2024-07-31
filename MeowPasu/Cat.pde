@@ -54,11 +54,11 @@ class Cat{
    if(level >= 10){
      this.level = 0; 
      this.radius = 30;
-     this.cat_image = loadImage("0.png"); 
+     this.cat_image = loadImage("assets/0.png"); 
    }else{
      this.level = level; 
      this.radius = 30 + (level* 5) ; 
-     this.cat_image = loadImage(level + ".png"); 
+     this.cat_image = loadImage("assets/" + level + ".png"); 
    }
    this.inverse_mass = 1.0f/(PI*this.radius*this.radius*10); 
    touch = false;
@@ -74,6 +74,9 @@ class Cat{
     }else{ //<>//
       current_position.x = mouseX; 
     }
+ }
+ int get_level(){
+   return level;
  }
 
 }

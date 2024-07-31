@@ -9,11 +9,12 @@
   
 */
 import java.util.Random;
+
 PImage wood ;
 ArrayList<Cat> cats; 
 Constraints constraints; 
 Cat next_cat; 
-
+Random rand;
 //Ending of Game
 int points; 
 boolean result; 
@@ -21,24 +22,23 @@ boolean result;
 boolean game_active; 
 PFont f; 
 
-
 void setup(){
   background(0);
   size(600, 800);
   
   frameRate(60); 
-  wood = loadImage("Wood.jpeg");
+  wood = loadImage("assets/Wood.jpeg");
+  rand = new Random();
   
   cats = new ArrayList<Cat>(); 
-  next_cat = new Cat(400, 0, 30, "0.png", 0);  
-  constraints = new Constraints(cats); 
+  next_cat = new Cat(400, 0, 30, "assets/0.png", 0);  
+  constraints = new Constraints(this, cats); 
   
   points = 0; 
   result = true; 
   
-  game_active = false;
+  game_active = true;
   f = createFont("Arial", 24,true);
-  
 }
 
 void draw(){
@@ -49,20 +49,12 @@ void draw(){
     line(-1,50,801,50);
     //constraints.update(1.0/frameRate);
     constraints.update(1/frameRate);
+    
     for(Cat c: cats){
       c.draw();
     }
     next_cat.draw();
     next_cat.changeX();
-  }else if(game_active == false && result == true ){
-    textFont(f, 58); 
-    fill(255); 
-    textAlign(CENTER);
-    text("MeowPasu", 300, 150);
-    textFont(f, 38); 
-    text("Suika Game!!", 300, 200);
-    textFont(f, 48);
-    text("Click to Start",300,750);
   }else if(game_active == false && result == false){
     textFont(f, 58); 
     fill(255); 
@@ -76,9 +68,8 @@ void mousePressed(){
   if (game_active == true){
     //drops the next cat 
     cats.add(next_cat); 
-    Random rand = new Random(); 
     int num = rand.nextInt(4); 
-    String image = num + ".png"; 
+    String image = "assets/" + num + ".png"; 
     int radius = (30 + (5*num));
     next_cat = new Cat(400, 0, radius, image, num); 
   }else if (game_active == false && result == true){

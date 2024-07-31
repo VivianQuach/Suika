@@ -1,3 +1,5 @@
+import processing.sound.*;
+import java.util.Random;
 class Constraints{
   //1st: apply gravity to an object 
   //2nd: add border constraints
@@ -5,13 +7,20 @@ class Constraints{
   
   PVector gravity = new PVector(0, 500); 
   ArrayList<Cat> cats; 
+  //Sound
+  SoundFile nyanPasu;
+  SoundFile meow; 
+  SoundFile nyan; 
+  PApplet p;
 
-  
-  
-  public Constraints(ArrayList<Cat> cats){
+  public Constraints(PApplet p, ArrayList<Cat> cats){
     this.cats = cats; 
     applyConstraints();
     resolveCollision();
+    //Intializing Sound Files
+     nyanPasu = new SoundFile(p,"assets/nyanpasu.mp3");
+     meow = new SoundFile(p, "assets/meow.mp3");
+     nyan = new SoundFile(p, "assets/nyan.mp3");
   }
   
   void update(float dt){
@@ -19,8 +28,7 @@ class Constraints{
     applyConstraints();
     resolveCollision();
     update_position(dt); 
-    losingLine();
-    
+    losingLine(); 
   }
   void update_position(float dt){
     for(Cat c: cats){
@@ -91,6 +99,14 @@ class Constraints{
     }
     for (Cat c: add_cats){
       cats.add(c); 
+      int which_cat = rand.nextInt(2);
+      if(cats.get(add_cats.size() -1).get_level() == 9){
+         nyanPasu.play();
+      }else if(which_cat == 0){
+         meow.play();
+      }else{
+       nyan.play();
+      }
     }
     for (Cat c: delete_cats){
       cats.remove(c);
