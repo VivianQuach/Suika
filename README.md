@@ -27,8 +27,8 @@ If the cat goes beyond the screen, you lose.
 
 **Point System:** For every merge, you get (2 * cat level) added to your points. When you merge two of the smallest cat, you get 2 points, when you merge two of the second smallest, you get 4, and so on.
 
+If you would like to run an application of the game, in processing go to file-> export application, pick which is right for you and add in the assets folder into the folder to play the game. Enjoy!!!
+
 Here is a short demo of the game:
 
-<video controls src="demo.mp4" title="Title"></video>
-
-If you would like to run an application of the game, in processing go to file-> export application, pick which is right for you and add in the assets folder into the folder to play the game. Enjoy!!!
+<video controls src="demo.mp4" title="Video"></video>
