@@ -20,7 +20,7 @@ class Cat{
     //Gives us the velocity of the object 
     PVector velocity = PVector.sub(current_position, previous_position); 
     //Adds friction into the velocity (smaller the number the more friction there is) 
-    velocity = PVector.mult(velocity, 0.94);  
+    velocity = PVector.mult(velocity, 0.91);  
     //Saving the current position of the object as its old position 
     previous_position = new PVector(current_position.x, current_position.y);
     //Verlet Equation is used to compute its new position 

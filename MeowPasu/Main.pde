@@ -71,7 +71,7 @@ void mousePressed(){
     int num = rand.nextInt(4); 
     String image = "assets/" + num + ".png"; 
     int radius = (30 + (5*num));
-    next_cat = new Cat(400, 0, radius, image, num); 
+    next_cat = new Cat(mouseX, 0, radius, image, num); 
   }else if (game_active == false && result == true){
     game_active = true; 
   }

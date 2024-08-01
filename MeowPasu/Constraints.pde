@@ -5,7 +5,7 @@ class Constraints{
   //2nd: add border constraints
   //3rd: add collision constraints 
   
-  PVector gravity = new PVector(0, 500); 
+  PVector gravity = new PVector(0, 1000); 
   ArrayList<Cat> cats; 
   //Sound
   SoundFile nyanPasu;
@@ -47,6 +47,7 @@ class Constraints{
     
     for (Cat c : cats) {
         // Check if the cat's current position is outside the rectangle
+        
         if (c.current_position.x < topLeft.x + c.radius) {
             c.current_position.x = topLeft.x + c.radius;
         }else if (c.current_position.x > bottomRight.x - c.radius) {
