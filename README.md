@@ -31,5 +31,7 @@ If you would like to run an application of the game, in processing go to file-> 
 
 Here is a short demo of the game: <br>
 
-https://github.com/user-attachments/assets/b9431c39-48e5-465b-b609-4fb309be32f5
+https://github.com/user-attachments/assets/eae11713-1708-40b7-a78a-052f39739ff3
+
+
 
