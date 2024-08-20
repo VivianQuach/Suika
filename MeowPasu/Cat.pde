@@ -53,11 +53,11 @@ class Cat{
    
    if(level >= 10){
      this.level = 0; 
-     this.radius = 30;
+     this.radius = 50;
      this.cat_image = loadImage("assets/0.png"); 
    }else{
      this.level = level; 
-     this.radius = 30 + (level* 5) ; 
+     this.radius = 50 + (level* 5) ; 
      this.cat_image = loadImage("assets/" + level + ".png"); 
    }
    this.inverse_mass = 1.0f/(PI*this.radius*this.radius*10); 

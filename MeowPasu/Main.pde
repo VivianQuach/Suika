@@ -31,7 +31,7 @@ void setup(){
   rand = new Random();
   
   cats = new ArrayList<Cat>(); 
-  next_cat = new Cat(400, 0, 30, "assets/0.png", 0);  
+  next_cat = new Cat(400, 0, 50, "assets/0.png", 0);  
   constraints = new Constraints(this, cats); 
   
   points = 0; 
@@ -70,7 +70,7 @@ void mousePressed(){
     cats.add(next_cat); 
     int num = rand.nextInt(4); 
     String image = "assets/" + num + ".png"; 
-    int radius = (30 + (5*num));
+    int radius = (50 + (5*num));
     next_cat = new Cat(mouseX, 0, radius, image, num); 
   }else if (game_active == false && result == true){
     game_active = true; 
